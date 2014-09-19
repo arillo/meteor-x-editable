@@ -1,7 +1,8 @@
 Package.describe({
   summary: " Latest version of X-Editable wrapped for meteor",
   version: "1.5.1",
-  git: "https://github.com/arillo/meteor-x-editable.git"
+  git: "https://github.com/arillo/meteor-x-editable.git",
+  name: "arillo:meteor-x-editable"
 });
 
 Package.onUse(function(api) {
@@ -12,13 +13,14 @@ Package.onUse(function(api) {
   api.add_files('lib/jquery-editable/img/clear.png', 'client');
   api.add_files('lib/jquery-editable/img/loading.gif', 'client');
 
-  api.add_files('lib/inputs-ext/wysihtml5/wysihtml5.js', 'client');
+  api.add_files('lib/jquery-editable/js/jquery.poshytip.js', 'client');
+  api.add_files('lib/jquery-editable/js/jquery-editable-poshytip.js', 'client');
   // address
   api.add_files('lib/inputs-ext/address/address.css', 'client');
   api.add_files('lib/inputs-ext/address/address.js', 'client', {bare:true});
 
+  api.add_files('lib/inputs-ext/wysihtml5/wysihtml5.js', 'client', {bare:true});
   // poshytip
-  // api.add_files('lib/jquery-editable/js/jquery-editable-poshytip.js', 'client');
 
   //override image paths
   api.add_files('path-override.css', 'client');  
@@ -29,10 +31,4 @@ Package.onTest(function(api) {
   api.use('tinytest');
   api.use('arillo:meteor-x-editable');
   api.addFiles('arillo:meteor-x-editable-tests.js');
-});
-
-
-Package.describe({
-	summary: "Latest version of X-Editable wrapped for meteor",
-	name: "meteor-x-editable"
 });
