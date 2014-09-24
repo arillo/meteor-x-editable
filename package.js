@@ -1,6 +1,6 @@
 Package.describe({
   summary: " Latest version of X-Editable wrapped for meteor",
-  version: "1.5.1",
+  version: "1.5.2",
   git: "https://github.com/arillo/meteor-x-editable.git",
   name: "arillo:meteor-x-editable"
 });
@@ -13,8 +13,16 @@ Package.onUse(function(api) {
   api.add_files('lib/jquery-editable/img/clear.png', 'client');
   api.add_files('lib/jquery-editable/img/loading.gif', 'client');
 
-  api.add_files('lib/jquery-editable/js/jquery.poshytip.js', 'client');
-  api.add_files('lib/jquery-editable/js/jquery-editable-poshytip.js', 'client');
+  api.add_files('lib/poshytip/tip-darkgray/tip-darkgray.png', 'client');
+  api.add_files('lib/poshytip/tip-darkgray/tip-darkgray_arrows.png', 'client');
+
+  api.add_files('lib/jquery-editable/jquery-ui-datepicker/js/jquery-ui-1.10.3.custom.js', 'client', {bare:true});
+
+  api.add_files('lib/poshytip/tip-darkgray/tip-darkgray.css', 'client');
+  api.add_files('lib/poshytip/jquery.poshytip.js', 'client', {bare:true});
+
+  api.add_files('lib/jquery-editable/css/jquery-editable.css', 'client');
+  api.add_files('lib/jquery-editable/js/jquery-editable-poshytip.js', 'client', {bare:true});
   // address
   api.add_files('lib/inputs-ext/address/address.css', 'client');
   api.add_files('lib/inputs-ext/address/address.js', 'client', {bare:true});
