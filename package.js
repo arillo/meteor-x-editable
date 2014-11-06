@@ -1,6 +1,6 @@
 Package.describe({
   summary: " Latest version of X-Editable wrapped for meteor",
-  version: "1.5.2",
+  version: "1.5.2-1",
   git: "https://github.com/arillo/meteor-x-editable.git",
   name: "arillo:meteor-x-editable"
 });
