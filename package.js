@@ -14,18 +14,18 @@ Package.onUse(function(api) {
   api.add_files('lib/jquery-editable/img/loading.gif', 'client');
 
   // api.add_files('lib/poshytip/tip-twitter/tip-twitter.png', 'client');
-  api.add_files('lib/poshytip/tip-twitter/tip-twitter_arrows.gif', 'client');
+  // api.add_files('lib/poshytip/tip-twitter/tip-twitter_arrows.gif', 'client');
 
   api.add_files('lib/jquery-editable/jquery-ui-datepicker/js/jquery-ui-1.10.3.custom.js', 'client', {bare:true});
-  
+
   api.add_files('lib/inputs-ext/wysihtml5/wysihtml5/wysihtml5-0.3.0.js', 'client', {bare:true});
 
-  api.add_files('lib/poshytip/tip-twitter/tip-twitter.css', 'client');
-  api.add_files('lib/poshytip/jquery.poshytip.js', 'client', {bare:true});
+  // api.add_files('lib/poshytip/tip-twitter/tip-twitter.css', 'client');
+  api.add_files('lib/jquery-editable/js/jquery.poshytip.js', 'client', {bare:true});
 
   api.add_files('lib/jquery-editable/css/jquery-editable.css', 'client');
   api.add_files('lib/jquery-editable/js/jquery-editable-poshytip.js', 'client', {bare:true});
-  
+
   api.add_files('lib/inputs-ext/wysihtml5/wysihtml5.js', 'client', {bare:true});
   // address
   api.add_files('lib/inputs-ext/address/address.css', 'client');
@@ -35,7 +35,7 @@ Package.onUse(function(api) {
   // poshytip
 
   //override image paths
-  api.add_files('path-override.css', 'client');  
+  api.add_files('path-override.css', 'client');
 
 });
 
