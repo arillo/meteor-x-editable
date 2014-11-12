@@ -22,14 +22,16 @@ Package.onUse(function(api) {
 
   // api.add_files('lib/poshytip/tip-twitter/tip-twitter.css', 'client');
   api.add_files('lib/jquery-editable/js/jquery.poshytip.js', 'client', {bare:true});
+  // address
 
   api.add_files('lib/jquery-editable/css/jquery-editable.css', 'client');
   api.add_files('lib/jquery-editable/js/jquery-editable-poshytip.js', 'client', {bare:true});
 
   api.add_files('lib/inputs-ext/wysihtml5/wysihtml5.js', 'client', {bare:true});
-  // address
+
   api.add_files('lib/inputs-ext/address/address.css', 'client');
   api.add_files('lib/inputs-ext/address/address.js', 'client', {bare:true});
+
 
 
   // poshytip

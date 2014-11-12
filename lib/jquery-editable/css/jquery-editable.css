@@ -2,49 +2,103 @@
 * In-place editing with Twitter Bootstrap, jQuery UI or pure jQuery
 * http://github.com/vitalets/x-editable
 * Copyright (c) 2013 Vitaliy Potapov; Licensed MIT */
+
+/* ====================================== */
+/* Reset
+/* ====================================== */
+
+.editable-container {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+
+
+/* ====================================== */
+/* Forms
+/* ====================================== */
+
+/* Form
+/* ====================================== */
+
 .editableform {
     margin-bottom: 0; /* overwrites bootstrap margin */
 }
 
 .editableform .control-group {
-    margin-bottom: 0; /* overwrites bootstrap margin */
-    white-space: nowrap; /* prevent wrapping buttons on new line */
-    line-height: 20px; /* overwriting bootstrap line-height. See #133 */
+    /*margin-bottom: 0;*/ /* overwrites bootstrap margin */
+    /*white-space: nowrap;*/ /* prevent wrapping buttons on new line */
+    /*line-height: 20px;*/ /* overwriting bootstrap line-height. See #133 */
 }
 
-/*
-  BS3 width:1005 for inputs breaks editable form in popup
-  See: https://github.com/vitalets/x-editable/issues/393
-*/
-.editableform .form-control {
-    width: auto;
+.editable-container label {
+  display: inline-block;
 }
+
+.editable-container label:empty {
+  display: none;
+}
+
+
+/* Controls
+/* ====================================== */
+
+.editableform .form-control {
+  margin-top: 10px;
+}
+
+.editableform .form-control:first-child {
+  margin-top: 0;
+}
+
+.editable-input input {
+  -webkit-appearance: none;
+  border-radius: 0;
+  background-color: white;
+  border: 1px solid #ccc;
+  width: 100%;
+  outline: 0;
+  color: #111;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  line-height: 1.2;
+  padding: 5px 6px;
+  font-size: 12px;
+  font-weight: normal;
+  height: auto;
+  display: inline-block;
+}
+
+
+/* Buttons
+/* ====================================== */
 
 .editable-buttons {
-   display: inline-block; /* should be inline to take effect of parent's white-space: nowrap */
-   vertical-align: top;
-   margin-left: 7px;
-   /* inline-block emulation for IE7*/
-   zoom: 1;
-   *display: inline;
+  margin-top: 10px;
 }
 
-.editable-buttons.editable-buttons-bottom {
-   display: block;
-   margin-top: 7px;
-   margin-left: 0;
+.editable-buttons button {
+  display: inline-block;
+  border-radius: 2px;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  font-weight: bold;
+  line-height: 1.2;
+  font-size: 12px;
+  padding: 3px 12px;
+  text-align: center;
+  display: inline-block;
+  vertical-align: middle;
+  white-space: nowrap;
+  color: white;
+  border: 1px solid #555;
+  background-color: #666;
+  cursor: pointer;
+  outline: 0;
+  text-transform: capitalize;
 }
 
-.editable-input {
-    vertical-align: top;
-    display: inline-block; /* should be inline to take effect of parent's white-space: nowrap */
-    width: auto; /* bootstrap-responsive has width: 100% that breakes layout */
-    white-space: normal; /* reset white-space decalred in parent*/
-   /* display-inline emulation for IE7*/
-   zoom: 1;
-   *display: inline;
-}
 
+/*??*/
 .editable-buttons .editable-cancel {
    margin-left: 7px;
 }
@@ -54,6 +108,10 @@
    height: 24px;
    width: 30px;
 }
+
+
+/* Loading
+/* ====================================== */
 
 .editableform-loading {
     background: url('../img/loading.gif') center center no-repeat;
@@ -65,6 +123,10 @@
 .editable-inline .editableform-loading {
     background-position: left 5px;
 }
+
+
+/* Error
+/* ====================================== */
 
  .editable-error-block {
     max-width: 300px;
@@ -82,7 +144,9 @@
    color: red;
 }
 
-/* ---- For specific types ---- */
+
+/* For specific types
+/* ====================================== */
 
 .editableform .editable-date {
     padding: 0;
@@ -145,47 +209,10 @@
 .editable-pre-wrapped {
    white-space: pre-wrap;
 }
-.editable-container.editable-popup {
-    max-width: none !important; /* without this rule poshytip/tooltip does not stretch */
-}
-
-.editable-container.popover {
-    width: auto; /* without this rule popover does not stretch */
-}
-
-.editable-container.editable-inline {
-    display: inline-block;
-    vertical-align: middle;
-    width: auto;
-    /* inline-block emulation for IE7*/
-    zoom: 1;
-    *display: inline;
-}
 
 .editable-container.ui-widget {
    font-size: inherit;  /* jqueryui widget font 1.1em too big, overwrite it */
    z-index: 9990; /* should be less than select2 dropdown z-index to close dropdown first when click */
-}
-.editable-click,
-a.editable-click,
-a.editable-click:hover {
-    text-decoration: none;
-    border-bottom: dashed 1px #0088cc;
-}
-
-.editable-click.editable-disabled,
-a.editable-click.editable-disabled,
-a.editable-click.editable-disabled:hover {
-   color: #585858;
-   cursor: default;
-   border-bottom: none;
-}
-
-.editable-empty, .editable-empty:hover, .editable-empty:focus{
-  font-style: italic;
-  color: #DD1144;
-  /* border-bottom: none; */
-  text-decoration: none;
 }
 
 .editable-unsaved {
@@ -211,3 +238,63 @@ a.editable-click.editable-disabled:hover {
     display:inline-block;
 }
 
+
+/* ====================================== */
+/* Marks
+/* ====================================== */
+
+/*@TODO Move everything to one file. This stuff is
+duplicated, it's the same as in the cms module*/
+
+.editable-click {
+  outline: 2px dotted #0d0 !important;
+  outline-offset: -2px;
+  position: relative;
+  z-index: 999;
+  min-width: 30px !important;
+  min-height: 20px !important;
+}
+
+/*
+* No elegant way to do this, all inline elements get to be inline-block.
+* This is important to visualize elements that are left empty.
+*/
+
+b.editable-click,
+i.editable-click,
+small.editable-click,
+tt.editable-click,
+abbr.editable-click,
+acronym.editable-click,
+cite.editable-click,
+code.editable-click,
+dfn.editable-click,
+em.editable-click,
+kbd.editable-click,
+strong.editable-click,
+a.editable-click,
+map.editable-click,
+q.editable-click,
+span.editable-click,
+sub.editable-click,
+sup.editable-click,
+button.editable-click,
+label.editable-click {
+  display: inline-block;
+}
+
+
+.editable-click.editable-disabled,
+a.editable-click.editable-disabled,
+a.editable-click.editable-disabled:hover {
+   color: #585858;
+   cursor: default;
+}
+
+.editable-empty,
+.editable-empty:hover, .editable-empty:focus{
+  font-style: italic;
+  color: #DD1144;
+  /* border-bottom: none; */
+  text-decoration: none;
+}
